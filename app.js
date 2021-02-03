@@ -22,7 +22,14 @@ const io = require("socket.io")(server)
 
 // /listen on every connection
 io.on('connection', (socket) => {
-    console.log('ccc')
+    console.log('Connection Made')
+
+
+    socket.username = "Batman"
+
+    socket.on('change_username', (data) => {
+        socket.username = data.username
+    })
 })
 
 
